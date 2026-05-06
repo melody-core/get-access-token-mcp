@@ -1,0 +1,25 @@
+{
+  "name": "get-access-token-mcp",
+  "version": "1.0.0",
+  "description": "专门提供各种access-token的mcp，例如gitee的令牌，蓝湖令牌等",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "get-access-token-mcp": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.js stdio",
+    "start:sse": "node src/index.js sse",
+    "test:import": "node -e \"import('./src/create-server.js').then(m => { m.createTokenMcpServer(); console.log('ok'); })\""
+  },
+  "keywords": ["mcp", "access-token", "gitee", "lanhu"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  }
+}
