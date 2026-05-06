@@ -1,0 +1,21 @@
+# 一键：docker compose up -d --build
+# 在项目根目录配置 .env（可参考 .env.example）；Compose 会读取该文件用于下方变量替换。
+
+services:
+  get-access-token-mcp:
+    build: .
+    image: get-access-token-mcp:latest
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3333}:3333"
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "3333"
+      MCP_TRANSPORT: sse
+      GITEE_ACCESS_TOKEN: ${GITEE_ACCESS_TOKEN-}
+      LANHU_ACCESS_TOKEN: ${LANHU_ACCESS_TOKEN-}
+      LANHU_TOKEN: ${LANHU_TOKEN-}
+      GITHUB_TOKEN: ${GITHUB_TOKEN-}
+      GITLAB_TOKEN: ${GITLAB_TOKEN-}
+      CODING_TOKEN: ${CODING_TOKEN-}
+      BITBUCKET_ACCESS_TOKEN: ${BITBUCKET_ACCESS_TOKEN-}
